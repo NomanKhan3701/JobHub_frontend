@@ -17,7 +17,6 @@ const JobsPage = () => {
     const [showFilter, setShowFilter] = useState(false);
 
     const handleClick = e => {
-        console.log(!filterRef.current.contains(e.target));
         if (filterRef.current && !filterRef.current.contains(e.target) && filterBtnRef.current && !filterBtnRef.current.contains(e.target)) {
             setShowFilter(false);
         }
@@ -42,7 +41,6 @@ const JobsPage = () => {
             </div>
 
             <div className={styles.result_sm}>
-
                 <div className={styles.util}>
                     123 Results
                 </div>

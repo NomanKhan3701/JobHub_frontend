@@ -56,6 +56,10 @@
       top: calc($pd-bottom-nav + $navbar-height);
       transition: $scroll-time all ease;
 
+      &.scrolled {
+        top: $pd-bottom-nav;
+      }
+
       @media screen and (max-width: $break-point-tab-lg) {
         width: 100%;
         max-width: 100%;
@@ -76,10 +80,6 @@
             transform: translateY(-100%);
           }
         }
-      }
-
-      &.scrolled {
-        top: $navbar-height;
       }
     }
 
