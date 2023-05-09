@@ -4,7 +4,7 @@ import useClickOutside from '@/hooks/useClickedOutside'
 
 const Dropdown = ({ Options, placeholder, value }) => {
     const [show, setShow] = React.useState(false)
-    const dropdownRef = React.useRef(null)
+    const dropdownRef = React.useRef(null);
     const outside = useClickOutside(dropdownRef, () => setShow(false))
 
     return (

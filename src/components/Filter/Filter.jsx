@@ -3,6 +3,7 @@ import styles from './Filter.module.scss';
 import BatchDropdown from '../UI/Dropdown/BatchDropdown/BatchDropdown';
 import OpportunityDropdown from '../UI/Dropdown/OpportunityDropdown/OpportunityDropdown';
 import WorkplaceDropdown from '../UI/Dropdown/WorkplaceDropdown/WorkplaceDropdown';
+import { FiFilter } from 'react-icons/fi';
 
 const Filter = () => {
     const [batch, setBatch] = React.useState(null);

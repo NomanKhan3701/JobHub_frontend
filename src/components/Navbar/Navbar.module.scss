@@ -46,8 +46,51 @@
     width: max-content;
     height: 4rem;
 
+    .icon_desktop {
+      display: block;
+
+      @media screen and (max-width: $break-point-mobile-sm) {
+        display: none;
+      }
+    }
+
+    .icon_mobile {
+      display: none;
+      cursor: pointer;
+
+      @media screen and (max-width: $break-point-mobile-sm) {
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: $break-point-mobile-sm) {
+      width: 4rem;
+      height: 4rem;
+      right: $pd-container-sm;
+      padding: 0;
+      justify-content: center;
+
+      input {
+        display: none;
+      }
+
+      svg {
+        font-size: 3rem;
+      }
+
+      &.show_search {
+        width: calc(100% - $pd-container-sm * 2);
+        padding: 0.2rem 1.4rem;
+
+        input {
+          display: block;
+        }
+      }
+
+      position: absolute;
+    }
+
     input {
-      width: 100%;
       height: 100%;
       background: transparent;
       border: none;
@@ -58,8 +101,16 @@
       color: $neutral-400;
       transition: 0.2s all ease;
 
+      @media screen and (max-width: $break-point-mobile-sm) {
+        width: 100%;
+      }
+
       &:focus {
         width: 50rem;
+
+        @media screen and (max-width: $break-point-mobile-sm) {
+          width: 100%;
+        }
       }
     }
 

@@ -2,58 +2,97 @@
 
 .Jobs_page {
   padding-bottom: 7rem;
+  padding-top: $navbar-height;
 
-  .header {
-    position: relative;
-    height: 30rem;
-    width: 100%;
+  @media screen and (max-width: $break-point-tab-lg) {
+    padding-top: calc($navbar-height + 1.8rem);
+  }
 
-    .header_content {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: $pd-container;
-      z-index: 1;
+  .filter_sm {
+    position: fixed;
+    bottom: 2rem;
+    right: $pd-container-sm;
+    z-index: 50;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 0.6rem;
+    background: $neutral-600;
+    backdrop-filter: blur(20px);
+    box-shadow: 0.2rem 0.2rem 1rem rgba($primary-blue, 0.4);
+    color: $neutral-000;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    font-size: 3rem;
+  }
 
-      h1 {
-        font-size: 4rem;
-        font-weight: 500;
+  .result_sm {
+    display: none;
 
-        span {
-          color: $primary-blue;
-        }
-      }
-    }
-
-    img {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 0;
+    @media screen and (max-width: $break-point-tab-lg) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: $neutral-300;
     }
   }
 
   .jobs_container {
     display: flex;
     gap: 3rem;
-    margin-top: $pd-bottom-nav;
     min-height: calc(100vh - $pd-bottom-nav - $navbar-height);
 
+    @media screen and (max-width: $break-point-tab-lg) {
+      flex-direction: column;
+      gap: 0;
+    }
+
     .filter_wrapper {
-      width: 40rem;
+      min-width: 30rem;
+      max-width: 30rem;
       height: max-content;
       top: calc($pd-bottom-nav + $navbar-height);
       transition: $scroll-time all ease;
 
+      @media screen and (max-width: $break-point-tab-lg) {
+        width: 100%;
+        max-width: 100%;
+        top: 0;
+        z-index: 100;
+
+        .filter_container {
+          position: fixed;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          height: max-content;
+          transition: 0.2s all ease;
+          max-height: calc(100vh - 10rem);
+          overflow-y: auto;
+
+          &.show_filter {
+            transform: translateY(-100%);
+          }
+        }
+      }
+
       &.scrolled {
-        top: $pd-bottom-nav;
+        top: $navbar-height;
       }
     }
 
     .jobs_wrapper {
       width: 100%;
+      max-width: calc(100% - 30rem - 3rem);
+      margin-top: $pd-bottom-nav;
+
+      @media screen and (max-width: $break-point-tab-lg) {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 1.8rem;
+      }
     }
   }
 }

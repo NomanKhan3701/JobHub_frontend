@@ -2,13 +2,14 @@ import React from 'react'
 import styles from './Jobs.module.scss';
 import Image from 'next/image';
 import companyLogo from '@/assets/images/companyLogo.jpg';
+import LimitChar from '../UI/LimitChar/LimitChar';
 
 const Jobs = () => {
 
     const jobs = [
         {
             company: 'Amazon India',
-            title: 'Fronted Developer',
+            title: 'Fronted Developer asdjfhjhas dfjkashdf asdjfhasd fkjasdhf asdfhkajsdf asdfhkasdf  asudfhjasd fjaskdhfuasd fsaidfukasdf',
             workplace: 'Remote',
             batches: [2020, 2021],
             opportunityType: 'Internship',
@@ -158,18 +159,22 @@ const Jobs = () => {
     }
 
     return (
-        <div className={styles.Jobs + " padding_top_nav"}>
+        <div className={styles.Jobs}>
             <div className={styles.jobs_list}>
                 {
                     jobs.map((job, index) => {
                         return (
                             <div className={styles.job} key={index}>
                                 <div className={styles.job_header}>
-                                    <img src={companyLogo.src} alt='company-logo' />
-                                    <div className={styles.job_title}>
-                                        <h3>{job.title}</h3>
-                                        <div className={styles.company_name}>
-                                            {job.company} | {job.batches.join(', ')}
+                                    <div className={styles.header_left}>
+                                        <img src={companyLogo.src} alt='company-logo' />
+                                        <div className={styles.job_title}>
+                                            <div className={styles.title}>
+                                                {job.title}
+                                            </div>
+                                            <div className={styles.company_name}>
+                                                {job.company} | {job.batches.join(', ')}
+                                            </div>
                                         </div>
                                     </div>
                                     <div className={styles.right_tags}>

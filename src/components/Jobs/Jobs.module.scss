@@ -26,18 +26,45 @@
     .job_header {
       display: flex;
       align-items: center;
+      width: 100%;
 
-      img {
-        width: 5rem;
-        height: 5rem;
-        border-radius: 0.6rem;
-        margin-right: 1.5rem;
+      @media screen and (max-width: $break-point-mobile) {
+        flex-direction: column;
+        align-items: start;
       }
 
-      h3 {
-        font-size: 1.6rem;
-        font-weight: 600;
-        color: $neutral-500;
+      .header_left {
+        display: flex;
+        align-items: center;
+        max-width: calc(100% - 27rem);
+
+        @media screen and (max-width: $break-point-mobile) {
+          max-width: calc(100% - 7rem);
+        }
+
+        img {
+          width: 5rem;
+          height: 5rem;
+          border-radius: 0.6rem;
+          margin-right: 1.5rem;
+        }
+
+        .job_title {
+          width: 100%;
+
+          .title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: $neutral-500;
+
+            // text overflow ellipsis
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            min-width: 0;
+            max-width: 100%;
+          }
+        }
       }
 
       .company_name {
@@ -51,6 +78,11 @@
         display: flex;
         gap: 1rem;
         margin-right: 1.6rem;
+
+        @media screen and (max-width: $break-point-mobile) {
+          margin-left: 0;
+          margin-top: 1rem;
+        }
 
         .opportunity,
         .workplace {
@@ -79,6 +111,10 @@
       display: flex;
       margin-top: 1.6rem;
       gap: 3rem;
+
+      @media screen and (max-width: $break-point-mobile) {
+        gap: 1rem;
+      }
 
       .line {
         width: 0.2rem;

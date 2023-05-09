@@ -28,6 +28,11 @@
     max-height: 40rem;
     overflow-y: auto;
 
+    @media screen and (max-width: $break-point-tab-lg) {
+      position: relative;
+      margin-top: 1rem;
+    }
+
     &.show {
       display: block;
     }

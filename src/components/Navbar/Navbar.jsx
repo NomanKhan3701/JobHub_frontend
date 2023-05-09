@@ -8,11 +8,13 @@ import { IoIosNotificationsOutline } from 'react-icons/io';
 import avatar from '@/assets/images/avatar.jpg'
 import useScrolledDown from '@/hooks/useScrolledDown';
 import { BiSearchAlt } from 'react-icons/bi'
+import { IoMdClose } from 'react-icons/io'
 
 const Navbar = () => {
 	const pathname = usePathname();
 	const scrolledDown = useScrolledDown();
-	const [searchText, setSearchText] = useState('')
+	const [searchText, setSearchText] = useState('');
+	const [showSearch, setShowSearch] = useState(false);
 	// const links = [
 	// 	{
 	// 		name: 'Jobs',
@@ -63,6 +65,12 @@ const Navbar = () => {
 		}
 	}
 
+	const openSearch = () => {
+		if (!showSearch) {
+			setShowSearch(true)
+		}
+	}
+
 	return (
 		<div className={styles.Navbar + ' container' + ` ${scrolledDown ? styles.scrolled : ''}` + ` ${scrolledThreshold ? styles.scrolled_threshold : ''}`}>
 			<Link href={'/'}>
@@ -71,9 +79,16 @@ const Navbar = () => {
 					JobHub
 				</div>
 			</Link>
-			<div className={styles.search}>
+			<div className={styles.search + ` ${showSearch ? styles.show_search : ''}`} onClick={openSearch}>
 				<input value={searchText} onChange={(e) => setSearchText(e.target.value)} type="text" placeholder="Search Job Titles or Keywords" />
-				<BiSearchAlt />
+				<div className={styles.icon_mobile}>
+					{
+						showSearch ? <IoMdClose onClick={() => setShowSearch(false)} /> : <BiSearchAlt />
+					}
+				</div>
+				<div className={styles.icon_desktop}>
+					<BiSearchAlt />
+				</div>
 			</div>
 			{/* <div className={styles.links_container}>
 				{
@@ -88,14 +103,16 @@ const Navbar = () => {
 					})
 				}
 			</div> */}
-			<div className={styles.utils}>
-				<div className={styles.notification}>
+			{/* <div className={styles.utils}> */}
+			{/* <div className={styles.notification}>
 					<IoIosNotificationsOutline />
-				</div>
-				{/* <div className={styles.profile}>
-					<img src={avatar.src} alt="" />
 				</div> */}
-			</div>
+			{/* <div className={styles.profile}>
+					<img src={avatar.src} alt="" />
+		
+		
+		</div> */}
+			{/* </div> */}
 		</div>
 	)
 }
