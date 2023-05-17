@@ -1,0 +1,130 @@
+@import "@/assets/styles/variables";
+
+.Card_loader {
+  width: 100%;
+  box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.03),
+    0 0 0 1px rgba(0, 0, 0, 0.01);
+  border-radius: 0.6rem;
+  padding: 1rem;
+  position: relative;
+  cursor: pointer;
+
+  .title,
+  .company_name,
+  .image,
+  .opportunity,
+  .workplace,
+  .left,
+  .right {
+    --bg-color: white;
+    --fg-color: hsl(214, 30%, 95%);
+    --skeleton-item-height: clamp(30px, calc(30px + 15%), 70px);
+    --gap: 1em;
+    --diagonal-mask: linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 1) 46%,
+      transparent 50%,
+      rgba(0, 0, 0, 1) 55%
+    );
+    --bottom-fade-mask: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0,
+      rgba(0, 0, 0, 1) 100%
+    );
+
+    background: var(--fg-color);
+    -webkit-mask-image: var(--bottom-fade-mask), var(--diagonal-mask);
+    -webkit-mask-size: 100%, 500%;
+    -webkit-mask-position-x: 0, 100%;
+    -webkit-mask-composite: source-in;
+    animation: 1.5s animate-list-loader-mask infinite;
+
+    @keyframes animate-list-loader-mask {
+      100% {
+        -webkit-mask-position-x: 0, 0%;
+      }
+    }
+  }
+
+  .job_header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    @media screen and (max-width: $break-point-mobile) {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .header_left {
+      display: flex;
+      align-items: center;
+      max-width: calc(100% - 22rem);
+
+      @media screen and (max-width: $break-point-mobile) {
+        max-width: calc(100% - 7rem);
+      }
+
+      .image {
+        min-width: 5rem;
+        height: 5rem;
+        border-radius: 0.6rem;
+        margin-right: 1.5rem;
+      }
+
+      .job_title {
+        width: 40rem;
+
+        .title {
+          height: 2rem;
+          width: 100%;
+        }
+      }
+    }
+
+    .company_name {
+      width: 20rem;
+      height: 1.6rem;
+      margin-top: 0.7rem;
+    }
+
+    .right_tags {
+      margin-left: auto;
+      display: flex;
+      gap: 1rem;
+      margin-right: 1.6rem;
+
+      @media screen and (max-width: $break-point-mobile) {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+
+      .opportunity,
+      .workplace {
+        height: 2.8rem;
+        width: 8rem;
+        border-radius: 0.8rem;
+      }
+    }
+  }
+
+  .job_body {
+    display: flex;
+    margin-top: 1.6rem;
+    gap: 3rem;
+    justify-content: space-between;
+
+    .left {
+      width: 40rem;
+      height: 4rem;
+      border-radius: 0.8rem;
+    }
+    .right {
+      width: 8rem;
+      height: rem;
+      margin-left: auto;
+      margin-right: 1.6rem;
+      border-radius: 0.8rem;
+    }
+  }
+}

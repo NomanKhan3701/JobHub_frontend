@@ -20,10 +20,14 @@
     backdrop-filter: blur(20px);
     box-shadow: 0.2rem 0.2rem 1rem rgba($primary-blue, 0.4);
     color: $neutral-000;
-    display: grid;
+    display: none;
     place-items: center;
     cursor: pointer;
     font-size: 3rem;
+
+    @media screen and (max-width: $break-point-tab) {
+      display: grid;
+    }
   }
 
   .result_sm {

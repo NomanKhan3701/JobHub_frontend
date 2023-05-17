@@ -9,6 +9,35 @@
     gap: 2rem;
   }
 
+  .no_data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+      width: 40rem;
+      max-width: 100%;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: $neutral-500;
+    }
+
+    .subtitle {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: $neutral-300;
+    }
+  }
+
+  .scroll_to_me {
+    height: 4rem;
+    width: 100%;
+  }
+
   .job {
     width: 100%;
     box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.03),
@@ -110,10 +139,10 @@
     .job_body {
       display: flex;
       margin-top: 1.6rem;
-      gap: 3rem;
+      gap: 2rem;
 
       @media screen and (max-width: $break-point-mobile) {
-        gap: 1rem;
+        gap: 0.3rem;
       }
 
       .line {

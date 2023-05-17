@@ -2,7 +2,11 @@ import * as actionTypes from "../constants/jobs";
 import { updateObject } from "../../shared/utility";
 
 const initialState = {
-    filter: {},
+    filter: {
+        batch: null,
+        opportunityType: null,
+        workplace: null,
+    },
     jobs: []
 }
 
