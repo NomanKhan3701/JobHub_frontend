@@ -3,7 +3,6 @@ import * as actionTypes from "../constants/auth";
 import { toast } from "react-toastify";
 import { Cookies } from "react-cookie";
 import jwt from "jsonwebtoken";
-import { safeGet } from "@/shared/utility";
 
 export const authStart = () => {
   return {
@@ -64,7 +63,7 @@ export const logout = (token) => {
           }
         })
         .catch((err) => {
-          toast.error(safeGet(err, (e) => e.response.data.message, "Whoops!. Something went wrong"));
+          toast.error(e.response.data.message || "Whoops!. Something went wrong");
           dispatch(authLogout());
           reject();
         });
