@@ -6,3 +6,10 @@ export const setFilter = (data) => {
         data: data,
     };
 }
+
+export const setJobs = (data) => {
+    return {
+        type: actionTypes.SET_JOBS,
+        data: data,
+    };
+}

@@ -19,4 +19,5 @@ export {
 
 export {
     setFilter,
+    setJobs,
 } from './jobs';

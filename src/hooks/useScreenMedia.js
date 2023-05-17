@@ -25,6 +25,7 @@ export const useScreenMedia = () => {
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
+        setWidth(window.innerWidth);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
