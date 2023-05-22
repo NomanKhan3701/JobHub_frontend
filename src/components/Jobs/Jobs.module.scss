@@ -168,8 +168,12 @@
         }
       }
 
-      .apply {
+      a {
+        width: max-content;
         margin-left: auto;
+      }
+
+      .apply {
         margin-right: 1.6rem;
 
         button {

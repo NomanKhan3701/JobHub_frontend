@@ -124,19 +124,19 @@ export const auth = (email, password, signIn, byGoogle = false) => {
 
 export const authCheckState = () => {
   return (dispatch) => {
-    const cookies = new Cookies();
-    const token = cookies.get("token");
-    if (!token) {
-      dispatch(authLogout());
-    } else {
-      const user = JSON.parse(localStorage.getItem("user"));
-      if (user) {
-        if (!user.isVerified) {
-          dispatch(setRedirectPathHomeAsUserNotVerified(true));
-        }
-        dispatch(authSuccess(token, user));
-      }
-    }
+    // const cookies = new Cookies();
+    // const token = cookies.get("token");
+    // if (!token) {
+    //   dispatch(authLogout());
+    // } else {
+    //   const user = JSON.parse(localStorage.getItem("user"));
+    //   if (user) {
+    //     if (!user.isVerified) {
+    //       dispatch(setRedirectPathHomeAsUserNotVerified(true));
+    //     }
+    //     dispatch(authSuccess(token, user));
+    //   }
+    // }
   };
 };
 

@@ -62,7 +62,6 @@ const Jobs = () => {
         setLoading(true);
         try {
             const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/offer?offset=${offset}&limit=${limit}`);
-            console.log(res.data);
             setOffset((prev) => prev + limit);
             const newJobList = [...jobs, ...res.data];
             dispatch(actions.setJobs(newJobList));
@@ -93,7 +92,7 @@ const Jobs = () => {
                                 <div className={styles.job_header}>
                                     <div className={styles.header_left}>
 
-                                        <img src={companyDefault.src} alt='company-logo' />
+                                        <img src={job.image?.url || companyDefault.src} alt='company-logo' />
                                         <div className={styles.job_title}>
                                             <div className={styles.title}>
                                                 {job.title}
@@ -131,9 +130,12 @@ const Jobs = () => {
                                             </div>
                                         </div>
                                     }
-                                    <div className={styles.apply}>
-                                        <button>Apply</button>
-                                    </div>
+                                    <a target='_blank' href={job.url.includes('https') || job.url.includes('http') ? job.url : "https://" + job.url}>
+                                        <div className={styles.apply}>
+                                            <button>Apply</button>
+                                        </div>
+                                    </a>
+
                                 </div>
                             </div>
                         )
